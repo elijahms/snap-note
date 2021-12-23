@@ -22,6 +22,8 @@ function App() {
 
   const form = userForm
 
+  const test = '12434'
+
     fetch("/users", {
       method: "POST",
       headers: {
