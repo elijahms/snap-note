@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import NewNote from "./NewNote";
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
     <input onChange={handleFormUpdate} type='text' name='email'></input>
     <button>Submit</button>
   </form>
+  <NewNote />
   </div>
   
   );
