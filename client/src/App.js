@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NewNote from "./NewNote";
+import AddEvents from "./AddEvents";
 
 function App() {
 
@@ -31,8 +32,8 @@ function App() {
     .then((r) => r.json())
     .then((data) => {
         console.log(data);
-    e.target.reset()
   })
+  e.target.reset()
 }
   
   return (
@@ -53,6 +54,7 @@ function App() {
     <button>Submit</button>
   </form>
   <NewNote />
+  <AddEvents />
   </div>
   
   );
