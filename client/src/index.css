@@ -46,6 +46,23 @@ opacity: 0.8;
 height: 250px;
 }
 
+a:link {
+  text-decoration: none;
+  color: #7e685a;
+}
+a:visited {
+  text-decoration: none;
+  color: #7e685a;
+}
+a:hover {
+  text-decoration: none;
+  color: #7e685a;
+}
+a:active {
+  text-decoration: none;
+  color: #7e685a;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -53,4 +70,5 @@ code {
 
 h1 {
   text-align: center;
+  color: white;
 }

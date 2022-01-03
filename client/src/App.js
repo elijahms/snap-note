@@ -9,6 +9,7 @@ function App() {
   
   return (
   <div>
+    <h1>SnapNote</h1>
     <NavBar />
     <Switch>
         <Route path="/newevent">
