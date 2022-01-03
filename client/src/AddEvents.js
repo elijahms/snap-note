@@ -65,7 +65,7 @@ const AddEvents = () => {
             end_hour: endTimeValue,
         }
         console.log(form);
-        fetch("/events", {
+        fetch("/api/events", {
         method: "POST",
         headers: {
             "Content-Type" : "application/json"

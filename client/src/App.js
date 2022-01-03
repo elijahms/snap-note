@@ -24,7 +24,7 @@ function App() {
 
   const test = '12434'
 
-    fetch("/users", {
+    fetch("/api/users", {
       method: "POST",
       headers: {
           "Content-Type" : "application/json"
@@ -41,7 +41,6 @@ function App() {
   return (
   
   <div>
-  <h1>Hello from React!</h1>
   <form onSubmit={handleNewUser}>
     <label>username</label>
     <input onChange={handleFormUpdate} type='text' name='username'></input>
