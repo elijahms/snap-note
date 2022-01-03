@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import NewNote from "./NewNote";
+import AddEvents from "./AddEvents";
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
 
   const form = userForm
 
-    fetch("/users", {
+  const test = '12434'
+
+    fetch("/api/users", {
       method: "POST",
       headers: {
           "Content-Type" : "application/json"
@@ -30,14 +34,13 @@ function App() {
     .then((r) => r.json())
     .then((data) => {
         console.log(data);
-    e.target.reset()
   })
+  e.target.reset()
 }
   
   return (
   
   <div>
-  <h1>Hello from React!</h1>
   <form onSubmit={handleNewUser}>
     <label>username</label>
     <input onChange={handleFormUpdate} type='text' name='username'></input>
@@ -51,6 +54,8 @@ function App() {
     <input onChange={handleFormUpdate} type='text' name='email'></input>
     <button>Submit</button>
   </form>
+  <NewNote />
+  <AddEvents />
   </div>
   
   );
