@@ -1,30 +1,24 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import Grid from '@mui/material/Grid';
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
 
 const NavBar = () => {
 
-    const Item = styled.div `
-    font-size: 15pt;
-    text-align: center;
-    padding-top: 5%;
-    `;
-
     return (
- 
-            <Grid container>
-            <Grid xs={4} md={4} s={4}>
-            <Item><NavLink activeStyle exact to="/">Home</NavLink></Item>
-            </Grid>
-            <Grid xs={4} md={4} s={4}>
-            <Item><NavLink exact to="/newevent">New Event</NavLink></Item>
-            </Grid>
-            <Grid xs={4} md={4} s={4}>
-            <Item><NavLink activeStyle exact to="/login">Login</NavLink></Item>
-            </Grid>
-            </Grid>
-  
+        <Grid container>
+        <Grid item xs={3} md={3} s={3}>
+        <div className='nav-bar-item' ><NavLink activeStyle={{color: 'white'}} exact to="/">Home</NavLink></div>
+        </Grid>
+        <Grid item xs={3} md={3} s={3}>
+        <div className='nav-bar-item' ><NavLink activeStyle={{color: 'white'}} exact to="/newevent">New Event</NavLink></div>
+        </Grid>
+        <Grid item xs={3} md={3} s={3}>
+        <div className='nav-bar-item' ><NavLink activeStyle={{color: 'white'}} exact to="/mynotes">My Notes</NavLink></div>
+        </Grid>
+        <Grid item xs={3} md={3} s={3}>
+        <div className='nav-bar-item'><NavLink activeStyle={{color: 'white'}} exact to="/login">Login/Out</NavLink></div>
+        </Grid>
+        </Grid>
     )
 }
 

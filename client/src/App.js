@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import NewNote from "./NewNote";
 import AddEvents from "./AddEvents";
 import NavBar from "./NavBar";
 import Login from "./Login";
+import MyNotes from "./MyNotes";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -16,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/login">
         <Login />
+        </Route>
+        <Route exact path="/mynotes">
+        <MyNotes />
         </Route>
         <Route path="/">
         <NewNote />

@@ -5,15 +5,6 @@ import styled from 'styled-components'
 
 const Login = () => {
 
-    const LoginBox = styled(Box) `
-    // background-color: #C2CAD0;
-    min-height: 60vh;
-    padding-top: 1%;
-    // border: 2px solid red;
-    margin: auto;
-    padding-bottom: 2%;
-    `
-
     const [userForm, setUserForm] = useState({
         username: '',
         email: '',
@@ -41,18 +32,18 @@ const Login = () => {
       })
     }
     return (
-        <LoginBox maxWidth='sm' component="form">
-            <Stack spacing={2}>
-            <TextField onChange={(e) => {setUserForm(...userForm, {first_name: e.target.value})}} value = {userForm.first_name} label='first name' ></TextField>
-            <TextField onChange={(e) => {setUserForm.last_name(e.target.value)}} label='last name' ></TextField>
-            <TextField onChange={(e) => {setUserForm.email(e.target.value)}} label='email' ></TextField>
-            <TextField onChange={(e) => {setUserForm.username(e.target.value)}} label="username" ></TextField>
-            <TextField onChange={(e) => {setUserForm.password_digest(e.target.value)}} label='password' ></TextField>
+        <Box maxWidth='sm' className='login-box'>
+            <Stack spacing={2} component="form">
+            <TextField onChange={(e) => {setUserForm({...userForm, first_name: e.target.value})}} id='firstname' autoFocus value = {userForm.first_name} label='first name' />
+            <TextField onChange={(e) => {setUserForm({...userForm, last_name: e.target.value})}} id='lastname' value = {userForm.last_name} label='last name' />
+            <TextField onChange={(e) => {setUserForm({...userForm, email: e.target.value})}} id='email' value = {userForm.email} label='email' />
+            <TextField onChange={(e) => {setUserForm({...userForm, username: e.target.value})}} id='username' value = {userForm.username} label="username" />
+            <TextField onChange={(e) => {setUserForm({...userForm, password_digest: e.target.value})}} id='password'value = {userForm.password_digest} label='password' />
             <Button onClick={handleNewUser} variant="contained">
                 Submit
             </Button>
             </Stack>
-        </LoginBox>
+        </Box>
     )
 }
 
