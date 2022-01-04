@@ -16,7 +16,7 @@ const NavBar = () => {
         <div className='nav-bar-item' ><NavLink activeStyle={{color: 'white'}} exact to="/mynotes">My Notes</NavLink></div>
         </Grid>
         <Grid item xs={3} md={3} s={3}>
-        <div className='nav-bar-item'><NavLink activeStyle={{color: 'white'}} exact to="/login">Login/Out</NavLink></div>
+        <div className='nav-bar-item'><NavLink activeStyle={{color: 'white'}} exact to="/login">Signup/Logout</NavLink></div>
         </Grid>
         </Grid>
     )

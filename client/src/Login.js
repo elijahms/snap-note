@@ -6,12 +6,8 @@ import styled from 'styled-components'
 const Login = ({setUser}) => {
 
     const [userForm, setUserForm] = useState({
-        username: '',
         email: '',
         password: '',
-        password_confirmation: '',
-        first_name: '',
-        last_name: '',
       })
     
       function handleNewUser(e) {
@@ -20,7 +16,7 @@ const Login = ({setUser}) => {
     
         const form = userForm
     
-        fetch("/api/users", {
+        fetch("/api/login", {
           method: "POST",
           headers: {
               "Content-Type" : "application/json"
@@ -37,14 +33,10 @@ const Login = ({setUser}) => {
     return (
         <Box maxWidth='sm' className='login-box'>
             <Stack spacing={2} component="form">
-            <TextField onChange={(e) => {setUserForm({...userForm, first_name: e.target.value})}} id='firstname' autoFocus value = {userForm.first_name} label='first name' />
-            <TextField onChange={(e) => {setUserForm({...userForm, last_name: e.target.value})}} id='lastname' value = {userForm.last_name} label='last name' />
-            <TextField onChange={(e) => {setUserForm({...userForm, email: e.target.value})}} id='email' value = {userForm.email} label='email' />
-            <TextField onChange={(e) => {setUserForm({...userForm, username: e.target.value})}} id='username' value = {userForm.username} label="username" />
-            <TextField onChange={(e) => {setUserForm({...userForm, password: e.target.value})}} id='password'value = {userForm.password} label='password' />
-            <TextField onChange={(e) => {setUserForm({...userForm, password_confirmation: e.target.value})}} id='password_confirmation' value = {userForm.password_confirmation} label='password confirmation' />
+            <TextField onChange={(e) => {setUserForm({...userForm, email: e.target.value})}} id='login-email' value = {userForm.email} label='email' />
+            <TextField onChange={(e) => {setUserForm({...userForm, password: e.target.value})}} id='login-password'value = {userForm.password} label='password' />
             <Button onClick={handleNewUser} variant="contained">
-                Submit
+                Login
             </Button>
             </Stack>
         </Box>
