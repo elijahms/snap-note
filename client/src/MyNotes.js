@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react'
+import EventsTile from './EventsTile';
+import {Box, Button, Stack} from '@mui/material'
 
 const MyNotes = () => {
 
@@ -11,16 +13,17 @@ const MyNotes = () => {
         .then((data) => {
             setUserEvents(data)
             console.log(data)
-    }
+            }
         )
-
       }, []);
 
     
     return (
-        <div>
-            {userEvents && userEvents.map((e) => <p>{e.weekday}</p>)}
-        </div>
+        <Box maxWidth='sm' className='notes-main-box' >
+            <Stack spacing={2}>
+            {userEvents && userEvents.map((e) => <EventsTile key={e.id} name={e.name} />)}
+            </Stack>
+        </Box>
     )
 }
 

@@ -17,11 +17,32 @@ margin: auto;
 padding-bottom: 2%;
 }
 
+.event-tile-container {
+width: 500px;
+border: 2px solid red;
+}
+
+.event-tile-name {
+  width: 100%;
+  align-items: center;
+  margin: auto;
+  }
+
 .logout-box {
   /* background-color: #C2CAD0; */
   min-height: 60vh;
   padding-top: 5%;
   /* border: 2px solid red; */
+  align-items: center;
+  margin: auto;
+  padding-bottom: 2%;
+  }
+
+.notes-main-box {
+  /* background-color: #C2CAD0; */
+  min-height: 60vh;
+  padding-top: 4%;
+  border: 2px solid green;
   align-items: center;
   margin: auto;
   padding-bottom: 2%;

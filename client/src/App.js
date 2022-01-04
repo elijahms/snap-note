@@ -14,14 +14,16 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("/api/me").then((r) => {
+    fetch("/api/me")
+    .then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
-        console.log(user);
+        r.json()
+        .then((user) => setUser(user));
       } else {
         console.log("no user");
       }
     });
+
   }, []);
 
   
@@ -38,10 +40,10 @@ function App() {
         {!user ? <Signup setUser={setUser} /> : <Logout setUser={setUser}/>}
         </Route>
         <Route exact path="/mynotes">
-        {user ? <MyNotes /> : <Login setUser={setUser} />}
+        {user ? <MyNotes user={user} /> : <Login setUser={setUser} />}
         </Route>
         <Route path="/">  
-        {user ? <NewNote /> : <Login setUser={setUser} />}
+        {user ? <NewNote user={user} /> : <Login setUser={setUser} />}
         </Route>
       </Switch>
   </div>

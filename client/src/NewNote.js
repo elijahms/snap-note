@@ -3,7 +3,11 @@ import {MyButton} from './Components/Button.style.js'
 import { Container, TextField} from '@mui/material'
 
 
-const NewNote = () => {
+const NewNote = ({user}) => {
+
+  function newNoteFunc(e) {
+    console.log(user);
+  }
     
     return (
         <Container maxWidth="md" >
@@ -11,7 +15,7 @@ const NewNote = () => {
             <TextField id="outlined-basic" label="New Note" variant="outlined" fullWidth multiline
               rows={8}/>
           </div>
-          <MyButton variant="contained">Submit</MyButton>
+          <MyButton onClick={newNoteFunc} variant="contained">Submit</MyButton>
         </Container>
     )
 }
