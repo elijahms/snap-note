@@ -3,12 +3,13 @@ import {Box, TextField, Button, Stack} from '@mui/material'
 import FormControl from '@mui/material/FormControl';
 import styled from 'styled-components'
 
-const Login = () => {
+const Login = ({setUser}) => {
 
     const [userForm, setUserForm] = useState({
         username: '',
         email: '',
-        password_digest: '',
+        password: '',
+        password_confirmation: '',
         first_name: '',
         last_name: '',
       })
@@ -26,10 +27,12 @@ const Login = () => {
           },
           body: JSON.stringify(form)
         })
-        .then((r) => r.json())
-        .then((data) => {
-            console.log(data);
-      })
+        .then((r) => {
+            if (r.ok) {
+              r.json().then((user) => setUser(user));
+              console.log(r);
+            }
+          })
     }
     return (
         <Box maxWidth='sm' className='login-box'>
@@ -38,7 +41,8 @@ const Login = () => {
             <TextField onChange={(e) => {setUserForm({...userForm, last_name: e.target.value})}} id='lastname' value = {userForm.last_name} label='last name' />
             <TextField onChange={(e) => {setUserForm({...userForm, email: e.target.value})}} id='email' value = {userForm.email} label='email' />
             <TextField onChange={(e) => {setUserForm({...userForm, username: e.target.value})}} id='username' value = {userForm.username} label="username" />
-            <TextField onChange={(e) => {setUserForm({...userForm, password_digest: e.target.value})}} id='password'value = {userForm.password_digest} label='password' />
+            <TextField onChange={(e) => {setUserForm({...userForm, password: e.target.value})}} id='password'value = {userForm.password} label='password' />
+            <TextField onChange={(e) => {setUserForm({...userForm, password_confirmation: e.target.value})}} id='password_confirmation' value = {userForm.password_confirmation} label='password confirmation' />
             <Button onClick={handleNewUser} variant="contained">
                 Submit
             </Button>
