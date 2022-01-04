@@ -30,6 +30,7 @@ const Login = ({setUser}) => {
             }
           })
     }
+    
     return (
         <Box maxWidth='sm' className='login-box'>
             <Stack spacing={2} component="form">

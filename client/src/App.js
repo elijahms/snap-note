@@ -25,19 +25,20 @@ function App() {
   }, []);
 
   
+ 
   return (
   <div>
-    <h1>SnapNote Welcome {user ? user.first_name : 'User'}</h1>
+    {user ? <h1> Welcome {user.first_name} </h1> : <h1>SnapNote</h1>}
     <NavBar />
     <Switch>
         <Route path="/newevent">
         {user ? <AddEvents user={user} /> : <Login setUser={setUser} />}
         </Route>
         <Route exact path="/login">
-        {!user ? <Signup setUser={setUser} /> : <Logout />}
+        {!user ? <Signup setUser={setUser} /> : <Logout setUser={setUser}/>}
         </Route>
         <Route exact path="/mynotes">
-        <MyNotes />
+        {user ? <MyNotes /> : <Login setUser={setUser} />}
         </Route>
         <Route path="/">  
         {user ? <NewNote /> : <Login setUser={setUser} />}
@@ -45,6 +46,7 @@ function App() {
       </Switch>
   </div>
   );
+  
 }
 
 export default App;

@@ -16,6 +16,17 @@ padding-top: 5%;
 margin: auto;
 padding-bottom: 2%;
 }
+
+.logout-box {
+  /* background-color: #C2CAD0; */
+  min-height: 60vh;
+  padding-top: 5%;
+  /* border: 2px solid red; */
+  align-items: center;
+  margin: auto;
+  padding-bottom: 2%;
+  }
+
 .add-event-main-box {
 /* background-color: #C2CAD0; */
 min-height: 60vh;
