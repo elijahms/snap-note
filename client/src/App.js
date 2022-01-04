@@ -17,6 +17,9 @@ function App() {
     fetch("/api/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+        console.log(user);
+      } else {
+        console.log("no user");
       }
     });
   }, []);
@@ -24,14 +27,14 @@ function App() {
   
   return (
   <div>
-    <h1>SnapNote -- Welcome {user ? user.first_name : 'User'}</h1>
+    <h1>SnapNote Welcome {user ? user.first_name : 'User'}</h1>
     <NavBar />
     <Switch>
         <Route path="/newevent">
-        <AddEvents />
+        {user ? <AddEvents user={user} /> : <Login setUser={setUser} />}
         </Route>
         <Route exact path="/login">
-        {user ? <Logout /> : <Signup setUser={setUser} />}
+        {!user ? <Signup setUser={setUser} /> : <Logout />}
         </Route>
         <Route exact path="/mynotes">
         <MyNotes />

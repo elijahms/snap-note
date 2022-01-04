@@ -1,13 +1,12 @@
 import {useState} from 'react'
-import styled from 'styled-components'
-import { Container, TextField, Autocomplete, Stack, Button, Grid, Box, FormControl, FormHelperText } from '@mui/material'
+import { TextField, Button, Grid, Box, FormControl, FormHelperText } from '@mui/material'
 import DateAdapter from '@mui/lab/AdapterLuxon';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import NativeSelect from '@mui/material/NativeSelect';
 import { DateTime } from "luxon";
 
-const AddEvents = () => {
+const AddEvents = ({user}) => {
 
 
     const now = DateTime.now();
@@ -25,7 +24,6 @@ const AddEvents = () => {
       setEventName('')
       setStartTimeValue('09:00')
       setEndTimeValue('11:00')
-
     }
 
       function handleSubmit(e) {
@@ -38,6 +36,7 @@ const AddEvents = () => {
             start_hour: startTimeValue,
             end_hour: endTimeValue,
             name: eventName,
+            user_id: user.id,
         }
         console.log(form);
         fetch("/api/events", {

@@ -7,7 +7,8 @@ class Api::EventsController < ApplicationController
   end
 
   def index
-    events = Event.all
+    user = User.find_by(id: session[:user_id])
+    events = user.events
     render json: events
   end
 
@@ -21,6 +22,7 @@ class Api::EventsController < ApplicationController
       :weekday,
       :start_hour,
       :end_hour,
+      :user_id
     )
   end
 
