@@ -16,19 +16,34 @@ const NewNote = ({user}) => {
       },
       body: JSON.stringify(note)
     })
-    .then((r) => r.json())
-    .then((data) => console.log(data))
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((r) => console.log(r));
+      } else {
+        r.json().then((err) => console.log(err));
+      }
+    });
   }
     
     return (
         <Container maxWidth="md" >
           <div className='note-div' >
-            <TextField id="outlined-basic" label="New Note" variant="outlined" fullWidth multiline
-            onChange={(e) => {setNote({...note, content: e.target.value})}}
-            value = {note.content} autoFocus
+            <TextField
+              id="outlined-basic"
+              label="New Note"
+              variant="outlined"
+              fullWidth
+              multiline
+              onChange={(e) => {setNote({...note, content: e.target.value})}}
+              value = {note.content}
+              autoFocus
               rows={8}/>
           </div>
-          <MyButton onClick={newNoteFunc} variant="contained">Submit</MyButton>
+          <MyButton
+            onClick={newNoteFunc}
+            variant="contained"
+            >Submit
+          </MyButton>
         </Container>
     )
 }

@@ -14,12 +14,8 @@ const Signup = ({setUser}) => {
         last_name: '',
       })
     
-      function handleNewUser(e) {
-        e.preventDefault()
-        console.log(userForm);
-    
+      function handleNewUser() {
         const form = userForm
-    
         fetch("/api/users", {
           method: "POST",
           headers: {
@@ -32,7 +28,7 @@ const Signup = ({setUser}) => {
               r.json().then((user) => setUser(user));
               console.log(r);
             } else {
-              r.json().then((err) => console.log(err))
+              r.json().then((err) => console.log(err));
             }
           });
     }

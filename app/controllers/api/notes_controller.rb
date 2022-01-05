@@ -14,9 +14,9 @@ class Api::NotesController < ApplicationController
     if Event.find_event_by_time(user)
       event = Event.find_event_by_time(user)
       note = Note.create!(:note_params, event_id: event.id )
-      render json: note
+      render json: note, status: :created
     else 
-      head :no_content
+      render json: { errors: ["You muse create a note during an event"] }, status: :forbidden
     end
 
   end
