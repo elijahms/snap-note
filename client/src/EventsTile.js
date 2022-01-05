@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
-import Notes from './Notes'
+import Note from './Note'
 import {Box, Button, Stack, Container} from '@mui/material'
 
-const EventsTile = ({name}) => {
+const EventsTile = ({name, setSelectedNote, eventId}) => {
     
     const [userNotes, setUserNotes] = useState({
         content: "no notes to show"
@@ -23,7 +23,11 @@ const EventsTile = ({name}) => {
         <Container className='event-tile-container'>
             <Button onClick={(e) => setNoteClick(() => !noteClick)} className='event-tile-name' variant='contained'>{name}</Button>
             <Stack>
-            {noteClick && userNotes.map((n) => <Notes key={n.id} content={n.content} />)}
+            {noteClick && userNotes.filter((note) => note.event_id === eventId).map((n) => <Note key={n.id}
+            id={n.id}
+            content={n.content}
+            setSelectedNote={setSelectedNote}
+            />)}
             </Stack>
         </Container>
     )

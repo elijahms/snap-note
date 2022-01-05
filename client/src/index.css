@@ -75,7 +75,7 @@ padding-top: 5%;
 .note-div {
 padding-top: 10%;
 opacity: 0.8;
-height: 250px;
+height: 450px;
 }
 
 a:link {
@@ -94,6 +94,25 @@ a:active {
   text-decoration: none;
   color: #7e685a;
 }
+
+
+.login-link a:link {
+  text-decoration: none;
+  color: black;
+}
+.login-link a:visited {
+  text-decoration: none;
+  color: black;
+}
+.login-link a:hover {
+  text-decoration: none;
+  color: black;
+}
+.login-link a:active {
+  text-decoration: none;
+  color: black;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

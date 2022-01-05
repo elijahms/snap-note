@@ -3,22 +3,26 @@ class Api::NotesController < ApplicationController
 
 
   def index
-    notes = Note.all
+    user = User.find_by(id: session[:user_id])
+    notes = user.notes
     render json: notes
   end
 
+  def update
+    note = Note.find_by(id: params[:id])
+    new_note = note.update!(note_params)
+    render json: new_note, status: :accepted
+  end
+
   def create 
-    puts "hello"
     user = User.find_by(id: session[:user_id])
-    puts user.id
     if Event.find_event_by_time(user)
       event = Event.find_event_by_time(user)
-      note = event.notes.create!(note_params)
-      render json: note, status: :created
     else 
-      render json: { errors: ["You muse create a note during an event"] }, status: :forbidden
+      event = user.events.find_or_create_by(name: 'Other')
     end
-
+    note = event.notes.create!(note_params)
+    render json: note, status: :created
   end
 
   private

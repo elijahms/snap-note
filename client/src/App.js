@@ -1,49 +1,62 @@
 import NewNote from "./NewNote";
 import AddEvents from "./AddEvents";
 import NavBar from "./NavBar";
-import Login from "./Login";
 import MyNotes from "./MyNotes";
 import Logout from "./Logout";
-import Signup from "./Signup";
-import SignUp from "./SignupPage";
+import LoadingPage from "./LoadingPage";
+import SignUpPage from "./SignupPage";
 import { Route, Switch } from "react-router-dom";
 import {useState, useEffect} from 'react'
+import NewLoginPage from "./NewLoginPage";
 
 function App() {
 
   const [user, setUser] = useState(null)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // auto-login
     fetch("/api/me")
     .then((r) => {
       if (r.ok) {
         r.json()
         .then((user) => setUser(user));
+        setIsLoading(false);
       } else {
         r.json().then(console.log("no user"))
       }
     });
 
   }, []);
+
+  if (!user) {
+    return (
+      <Switch>
+          <Route exact path="/login"> 
+          {isLoading ? <LoadingPage /> : <NewLoginPage setUser={setUser} />}
+          </Route>
+          <Route path="/"> 
+            {isLoading ? <LoadingPage /> : <SignUpPage setUser={setUser} />}
+          </Route>
+      </Switch>
+    ) 
+  }
  
   return (
   <div>
-    {user ? <h1> Welcome {user.first_name} </h1> : <h1>SnapNote</h1>}
+    <h1> Welcome {user.first_name} </h1>
     <NavBar />
     <Switch>
         <Route path="/newevent">
-        {user ? <AddEvents user={user} /> : <Login setUser={setUser} />}
+        <AddEvents user={user} />
         </Route>
         <Route exact path="/login">
-        {!user ? <Signup setUser={setUser} /> : <Logout setUser={setUser}/>}
-        {/* {!user ? <SignUp /> : <Logout setUser={setUser}/>} */}
+        <Logout setUser={setUser}/>
         </Route>
         <Route exact path="/mynotes">
-        {user ? <MyNotes user={user} /> : <Login setUser={setUser} />}
+        <MyNotes user={user} />
         </Route>
         <Route path="/">  
-        {user ? <NewNote user={user} /> : <Login setUser={setUser} />}
+        <NewNote user={user} />
         </Route>
       </Switch>
   </div>

@@ -8,9 +8,7 @@ import { DateTime } from "luxon";
 
 const AddEvents = ({user}) => {
 
-
     const now = DateTime.local();
-    console.log(now)
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     const [startValue, setStartValue] = useState(now);
@@ -18,8 +16,8 @@ const AddEvents = ({user}) => {
     const [endValue, setEndValue] = useState(now);
     const [startTimeValue, setStartTimeValue] = useState('09:00');
     const [endTimeValue, setEndTimeValue] = useState('11:00');
-    const [weekday, setWeekday] = useState('')
-    const [inputValue, setInputValue] = useState('');
+    const [weekday, setWeekday] = useState('Monday')
+    // const [inputValue, setInputValue] = useState('');
 
     function formReset() {
       setEventName('')
@@ -39,7 +37,7 @@ const AddEvents = ({user}) => {
             name: eventName,
             user_id: user.id,
         }
-        console.log(form);
+
         fetch("/api/events", {
         method: "POST",
         headers: {

@@ -1,24 +1,30 @@
+import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-const SignUpPage = ({setUser}) => {
+// const theme = createTheme()
+
+const NewLoginPage = ({setUser}) => {
 
   function Copyright() {
     return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link className='login-link' color="inherit" href="https://elijahsilverman.com/">
-        Andrew + Elijah
+        Elijah Silverman + Andrew Busel
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -30,15 +36,11 @@ const SignUpPage = ({setUser}) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const form = {
-        username: data.get('username'),
         email: data.get('email'),
         password: data.get('password'),
-        password_confirmation: data.get('confirm-password'),
-        first_name: data.get('firstName'),
-        last_name: data.get('lastName'),
       }
     console.log(form)
-    fetch("/api/users", {
+    fetch("/api/login", {
       method: "POST",
       headers: {
           "Content-Type" : "application/json"
@@ -69,40 +71,10 @@ const SignUpPage = ({setUser}) => {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Login
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -124,17 +96,6 @@ const SignUpPage = ({setUser}) => {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="confirm-password"
-                  label="Confirm Password"
-                  type="password"
-                  id="confirm-password"
-                  autoComplete="new-password"
-                />
-              </Grid>
             </Grid>
             <Button
               type="submit"
@@ -142,12 +103,12 @@ const SignUpPage = ({setUser}) => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Sign In
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <NavLink className='login-link' exact to="/login" variant="body2">
-                  Already have an account? Sign in
+                <NavLink className='login-link' exact to="/" variant="body2">
+                  Dont have an account? Sign Up
                 </NavLink>
               </Grid>
             </Grid>
@@ -158,4 +119,4 @@ const SignUpPage = ({setUser}) => {
   )
 }
 
-export default SignUpPage
+export default NewLoginPage
