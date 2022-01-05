@@ -7,7 +7,7 @@ class Event < ApplicationRecord
             :user_id,
             presence: true
   belongs_to :user
-  has_many :notes
+  has_many :notes, dependent: :destroy
 
   def self.find_event_by_time(user)
     current_time = Time.new

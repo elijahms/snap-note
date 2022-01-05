@@ -31,6 +31,8 @@ const Signup = ({setUser}) => {
             if (r.ok) {
               r.json().then((user) => setUser(user));
               console.log(r);
+            } else {
+              r.json().then((err) => console.log(err))
             }
           });
     }

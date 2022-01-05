@@ -6,13 +6,9 @@ import UseState, { useState } from 'react'
 
 const NewNote = ({user}) => {
 
-  const [note, setNote] = useState({
-    content: ''
-  })
+  const [note, setNote] = useState({content: ''})
 
-  function newNoteFunc(e) {
-    console.log(user);
-    console.log(note);
+  function newNoteFunc() {
     fetch("/api/notes", {
       method: "POST",
       headers: {
@@ -29,7 +25,7 @@ const NewNote = ({user}) => {
           <div className='note-div' >
             <TextField id="outlined-basic" label="New Note" variant="outlined" fullWidth multiline
             onChange={(e) => {setNote({...note, content: e.target.value})}}
-            value = {note.content}
+            value = {note.content} autoFocus
               rows={8}/>
           </div>
           <MyButton onClick={newNoteFunc} variant="contained">Submit</MyButton>

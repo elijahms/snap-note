@@ -21,13 +21,11 @@ function App() {
         r.json()
         .then((user) => setUser(user));
       } else {
-        console.log("no user");
+        r.json().then(console.log("no user"))
       }
     });
 
   }, []);
-
-  
  
   return (
   <div>

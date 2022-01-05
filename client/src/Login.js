@@ -11,17 +11,14 @@ const Login = ({setUser}) => {
       })
     
       function handleNewUser(e) {
-        e.preventDefault()
-        console.log(userForm);
-    
-        const form = userForm
+        // const form = userForm
     
         fetch("/api/login", {
           method: "POST",
           headers: {
               "Content-Type" : "application/json"
           },
-          body: JSON.stringify(form)
+          body: JSON.stringify(userForm)
         })
         .then((r) => {
             if (r.ok) {
