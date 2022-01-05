@@ -9,7 +9,8 @@ import { DateTime } from "luxon";
 const AddEvents = ({user}) => {
 
 
-    const now = DateTime.now();
+    const now = DateTime.local();
+    console.log(now)
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     const [startValue, setStartValue] = useState(now);

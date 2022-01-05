@@ -7,6 +7,20 @@ class Api::NotesController < ApplicationController
     render json: notes
   end
 
+  def create 
+    puts "hello"
+    user = User.find_by(id: session[:user_id])
+    puts user.id
+    if Event.find_event_by_time(user)
+      event = Event.find_event_by_time(user)
+      note = Note.create!(:note_params, event_id: event.id )
+      render json: note
+    else 
+      head :no_content
+    end
+
+  end
+
   private
 
   def note_params

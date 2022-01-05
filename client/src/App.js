@@ -5,6 +5,7 @@ import Login from "./Login";
 import MyNotes from "./MyNotes";
 import Logout from "./Logout";
 import Signup from "./Signup";
+import SignUp from "./SignupPage";
 import { Route, Switch } from "react-router-dom";
 import {useState, useEffect} from 'react'
 
@@ -38,6 +39,7 @@ function App() {
         </Route>
         <Route exact path="/login">
         {!user ? <Signup setUser={setUser} /> : <Logout setUser={setUser}/>}
+        {/* {!user ? <SignUp /> : <Logout setUser={setUser}/>} */}
         </Route>
         <Route exact path="/mynotes">
         {user ? <MyNotes user={user} /> : <Login setUser={setUser} />}
