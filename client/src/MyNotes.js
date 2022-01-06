@@ -7,6 +7,7 @@ import EditNote from './EditNote';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import { NavLink } from 'react-router-dom'
 
 
 const MyNotes = () => {
@@ -56,9 +57,19 @@ const MyNotes = () => {
                     )
                     : 
                     <List>
-                        <ListItem>
-                            <ListItemText primary="No Notes" secondary='Create a note' />
+                        <NavLink 
+                        exact to="/"
+                        >
+                        <ListItem
+                        button
+                        >
+                            <ListItemText
+                            sx={{color: 'black'}}
+                            primary="No Notes"
+                            secondary='Create a note'
+                            />
                         </ListItem>
+                        </NavLink>
                     </List>
                 }
             </Stack>
