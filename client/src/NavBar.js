@@ -5,7 +5,7 @@ const NavBar = () => {
 
     return (
         <Grid container>
-        <Grid item xs={3} md={3} s={3}>
+        <Grid item xs={6} md={3} s={3}>
         <div className='nav-bar-item' >
             <NavLink 
             activeStyle={{color: '#002884'}}
@@ -13,7 +13,7 @@ const NavBar = () => {
                 Home
             </NavLink></div>
         </Grid>
-        <Grid item xs={3} md={3} s={3}>
+        <Grid item xs={6} md={3} s={3}>
         <div className='nav-bar-item' >
             <NavLink
             activeStyle={{color: '#002884'}}
@@ -21,7 +21,7 @@ const NavBar = () => {
                 New Event
             </NavLink></div>
         </Grid>
-        <Grid item xs={3} md={3} s={3}>
+        <Grid item xs={6} md={3} s={3}>
         <div className='nav-bar-item' >
             <NavLink 
             activeStyle={{color: '#002884'}}
@@ -29,7 +29,7 @@ const NavBar = () => {
                 My Events
             </NavLink></div>
         </Grid>
-        <Grid item xs={3} md={3} s={3}>
+        <Grid item xs={6} md={3} s={3}>
         <div className='nav-bar-item'>
             <NavLink
             activeStyle={{color: '#002884'}}

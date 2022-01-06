@@ -1,6 +1,8 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
 
 const Logout = ({setUser}) => {
 
@@ -11,6 +13,7 @@ const Logout = ({setUser}) => {
     }
 
     return (
+        <Container>
         <Box 
             maxWidth='sm'
             className='logout-box' >
@@ -22,6 +25,7 @@ const Logout = ({setUser}) => {
                 </Button>
             </Stack>
         </Box>
+        </Container>
     )
 }
 

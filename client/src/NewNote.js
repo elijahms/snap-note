@@ -69,6 +69,7 @@ const NewNote = ({user}) => {
         <Container component='main' maxWidth="lg" 
         sx={{
           marginTop: 3,
+          marginBottom: 3,
           flexDirection: 'column',
           alignItems: 'center',
         }}

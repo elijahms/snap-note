@@ -70,6 +70,7 @@ const NewAddEvent = ({user}) => {
         <Box
           sx={{
             marginTop: 8,
+            marginBottom: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -110,16 +111,17 @@ const NewAddEvent = ({user}) => {
                 onChange={(startValue) => {setStartValue(startValue)}}
                 renderInput={(params) => <TextField {...params} />}/>
               </Grid>
-              <Grid item xs={3} lg={3} >
+              <Grid item xs={6} sm={6} lg={3} >
               <TextField
                     id="start-time"
                     onChange={(e) => {setStartTimeValue(e.target.value)}}
                     label="Start Time"
                     type="time"
                     value = {startTimeValue}
+                    sx={{width: '1'}}
                     />
             </Grid>
-            <Grid item xs={3} lg={3} >
+            <Grid item xs={6} sm={6} lg={3} >
             <TextField
                     id="end-time"
                     onChange={(e) => {
@@ -128,6 +130,7 @@ const NewAddEvent = ({user}) => {
                     label="End Time"
                     type="time"
                     value = {endTimeValue}
+                    sx={{width: '1'}}
                     />
                     </Grid>
               <Grid item xs={12} lg={5.2}>
