@@ -20,13 +20,21 @@ class Event < ApplicationRecord
     Saturday
   ]
 
+  # def minuteTest(startTime, currentTime)
+  #   if startTime.hour == currentTime.hour && startTime.min < currentTime.min
+  #     return false
+  #   else
+  #     return true
+  #   end
+  # end
+
   def self.find_event_by_time(user)
     current_time = Time.new
     weekday = @@weekday_to_str[current_time.wday]
     user.events.find do |event|
-      event.weekday == weekday && event.start_hour.hour < current_time.hour &&
-        event.end_hour.hour > current_time.hour &&
-        current_time <= event.end_date && current_time >= event.start_date
+      event.weekday == weekday && event.start_hour.hour <= current_time.hour &&
+        event.end_hour.hour >= current_time.hour &&
+        current_time.yday <= event.end_date.yday && current_time.yday >= event.start_date.yday && event.start_hour.min <= current_time.min && event.end_hour >= current_time.min
     end
   end
 end

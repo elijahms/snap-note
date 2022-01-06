@@ -16,8 +16,9 @@ const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, trigger
     const [userNotes, setUserNotes] = useState('') 
     const [noteClick, setNoteClick] = useState(false)
 
-    let starthour = DateTime.fromISO(startHour).toLocaleString(DateTime.TIME_SIMPLE)
-    let endhour = DateTime.fromISO(endHour).toLocaleString(DateTime.TIME_SIMPLE)
+    let starthour = DateTime.fromISO(startHour, {zone: "UTC"}).toLocaleString(DateTime.TIME_SIMPLE)
+    let endhour = DateTime.fromISO(endHour, {zone: "UTC"}).toLocaleString(DateTime.TIME_SIMPLE)
+
 
     function deleteEventFunc(e) {
         fetch(`/api/events/${eventId}`, { method: 'DELETE' })
