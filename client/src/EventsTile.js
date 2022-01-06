@@ -1,6 +1,10 @@
 import {useState, useEffect} from 'react'
 import Note from './Note'
-import {Box, Button, Stack, Container} from '@mui/material'
+import { Button, ListItemAvatar, Stack} from '@mui/material'
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
 
 const EventsTile = ({name, setSelectedNote, eventId}) => {
     
@@ -20,16 +24,19 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
       }, []);
     
     return (
-        <Container className='event-tile-container'>
+        <List>
+            <ListItem>
             <Button onClick={(e) => setNoteClick(() => !noteClick)} className='event-tile-name' variant='contained'>{name}</Button>
-            <Stack>
-            {noteClick && userNotes.filter((note) => note.event_id === eventId).map((n) => <Note key={n.id}
+            </ListItem>
+            {noteClick && userNotes.filter((note) => note.event_id === eventId).map((n) => 
+            <Note 
+            key={n.id}
             id={n.id}
             content={n.content}
+            created_at={n.created_at}
             setSelectedNote={setSelectedNote}
             />)}
-            </Stack>
-        </Container>
+        </List>
     )
 }
 

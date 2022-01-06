@@ -73,9 +73,13 @@ const NewAddEvent = ({user}) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            boxShadow: 3,
+            borderRadius: 2,
+            backgroundColor: 'white',
+            padding: '10px'
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{color: 'black'}}>
             Add Event
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -84,6 +88,7 @@ const NewAddEvent = ({user}) => {
               <Grid item xs={12}>
                 <TextField
                   required
+                  // error = 'false'
                   fullWidth
                   id="name"
                   label="Name"
@@ -108,16 +113,11 @@ const NewAddEvent = ({user}) => {
               <Grid item xs={3} lg={3} >
               <TextField
                     id="start-time"
-                    onChange={(e) => {setStartTimeValue(e.target.value);}}
+                    onChange={(e) => {setStartTimeValue(e.target.value)}}
                     label="Start Time"
                     type="time"
                     value = {startTimeValue}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    inputProps={{
-                      step: 300, // 5 min
-                    }}/>
+                    />
             </Grid>
             <Grid item xs={3} lg={3} >
             <TextField
@@ -128,12 +128,7 @@ const NewAddEvent = ({user}) => {
                     label="End Time"
                     type="time"
                     value = {endTimeValue}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    inputProps={{
-                      step: 300, // 5 min
-                    }}/>
+                    />
                     </Grid>
               <Grid item xs={12} lg={5.2}>
               <DesktopDatePicker
