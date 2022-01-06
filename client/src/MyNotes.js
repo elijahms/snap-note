@@ -13,6 +13,8 @@ const MyNotes = () => {
 
     const [userEvents, setUserEvents] = useState([])
     const [selectedNote, setSelectedNote] = useState('')
+    const [triggerRerender, setTriggerRerender] = useState(false)
+
 
     useEffect(() => {
         fetch("/api/events")
@@ -22,7 +24,7 @@ const MyNotes = () => {
             console.log(data)
             }
         )
-      }, []);
+      }, [triggerRerender]);
 
     
     return (
@@ -47,7 +49,10 @@ const MyNotes = () => {
                     setSelectedNote={setSelectedNote}
                     key={e.id}
                     name={e.name}
-                    eventId={e.id} />
+                    eventId={e.id}
+                    setTriggerRerender={setTriggerRerender}
+                    triggerRerender={triggerRerender}
+                     />
                     )
                     : 
                     <List>

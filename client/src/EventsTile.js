@@ -6,12 +6,21 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 
-const EventsTile = ({name, setSelectedNote, eventId}) => {
+const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, triggerRerender}) => {
     
     const [userNotes, setUserNotes] = useState('') 
     const [noteClick, setNoteClick] = useState(false)
-    const [triggerRerender, setTriggerRerender] = useState(false)
+    // const [triggerRerender, setTriggerRerender] = useState(false)
+
+
+    function deleteEventFunc(e) {
+        fetch(`/api/events/${eventId}`, { method: 'DELETE' })
+        .then((message) => console.log(message));
+        setTriggerRerender((triggerRerender) => !triggerRerender)
+    }
 
 
     useEffect(() => {
@@ -22,11 +31,20 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
             console.log(data)
             }
         )
-      }, [triggerRerender]);
+      }, []);
     
     return (
         <List>
             <ListItem
+            secondaryAction={
+                <IconButton 
+                edge="end"
+                aria-label="delete"
+                onClick={deleteEventFunc}
+                >
+                <DeleteIcon />
+                </IconButton>
+                }
             button
             onClick={(e) => setNoteClick(() => !noteClick)}
             className='event-tile-name'

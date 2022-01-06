@@ -14,6 +14,12 @@ class Api::EventsController < ApplicationController
     render json: events
   end
 
+  def destroy
+    event = Event.find_by(id: params[:id])
+    event.destroy!
+    render json: { message: 'Your event was deleted' }, status: :gone
+  end
+
   private
 
   def event_params
