@@ -28,7 +28,7 @@ const MyNotes = () => {
 
     
     return (
-        <Container component="main" maxWidth="sm">
+        <Container component="main" maxWidth="md">
         {/* <CssBaseline /> */}
         <Box
           sx={{

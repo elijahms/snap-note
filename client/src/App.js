@@ -1,5 +1,4 @@
 import NewNote from "./NewNote";
-import AddEvents from "./AddEvents";
 import NavBar from "./NavBar";
 import MyNotes from "./MyNotes";
 import Logout from "./Logout";
