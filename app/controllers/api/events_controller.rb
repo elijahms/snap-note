@@ -1,5 +1,6 @@
 class Api::EventsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  before_action :authorize
 
   def create
     user = User.find_by(id: session[:user_id])

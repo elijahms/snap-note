@@ -13,8 +13,6 @@ const MyNotes = () => {
 
     const [userEvents, setUserEvents] = useState([])
     const [selectedNote, setSelectedNote] = useState('')
-    let today = new Date() 
-    console.log(today)
 
     useEffect(() => {
         fetch("/api/events")
@@ -29,31 +27,40 @@ const MyNotes = () => {
     
     return (
         <Container component="main" maxWidth="md">
-        {/* <CssBaseline /> */}
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            boxShadow: 3,
-            borderRadius: 2,
-            backgroundColor: 'white',
-            padding: '10px'
-          }}
-        >
-            {!selectedNote ? 
-            <Stack spacing={1} sx={{width: '100%'}} >
-                {userEvents.length > 0 ? userEvents.map((e) =>  <EventsTile setSelectedNote={setSelectedNote} key={e.id} name={e.name} eventId={e.id} />)
-                : 
-                    <ListItem>
-                        <ListItemText primary="No Notes" secondary='Create a note' />
-                    </ListItem>
+            {
+            !selectedNote ? 
+                <Box
+                sx={{
+                    marginTop: 8,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    boxShadow: 3,
+                    borderRadius: 2,
+                    backgroundColor: 'white',
+                    padding: '5px'
+                }}>
+                <Stack spacing={1} sx={{width: '100%'}} >
+                {
+                userEvents.length > 0 ? userEvents.map((e) =>  
+                    <EventsTile
+                    setSelectedNote={setSelectedNote}
+                    key={e.id}
+                    name={e.name}
+                    eventId={e.id} />
+                    )
+                    : 
+                    <List>
+                        <ListItem>
+                            <ListItemText primary="No Notes" secondary='Create a note' />
+                        </ListItem>
+                    </List>
                 }
             </Stack>
+            </Box>
              : 
-             <EditNote selectedNote={selectedNote} setSelectedNote={setSelectedNote} />}
-        </Box>
+             <EditNote selectedNote={selectedNote} setSelectedNote={setSelectedNote} />
+             }
         </Container>
     )
 }

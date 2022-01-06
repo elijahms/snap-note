@@ -1,6 +1,5 @@
 class Api::UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
-  before_action :authorize, only: [:show]
 
   def create
     user = User.create!(user_params)
@@ -14,8 +13,8 @@ class Api::UsersController < ApplicationController
     user = User.find_by(id: session[:user_id])
     if user
       render json: user
-    else 
-      head :no_content 
+    else
+      head :no_content
     end
   end
 
@@ -30,12 +29,6 @@ class Api::UsersController < ApplicationController
       :password,
       :password_confirmation,
     )
-  end
-
-  def authorize
-    unless session.include? :user_id
-      return render json: { error: 'Not authorized' }, status: :unauthorized
-    end
   end
 
   def render_unprocessable_entity(invalid)

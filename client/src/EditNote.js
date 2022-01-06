@@ -46,51 +46,48 @@ const EditNote = ({selectedNote, setSelectedNote}) => {
   }
 
     return (
-          <div>
-          <Stack spacing={2}
-          >
-            {/* <Box
-            // sx={{boxShadow: 3, borderRadius: 2}}
-            > */}
-              <Editor
-              toolbar={{
-                options: ['inline', 'blockType', 'fontSize', 'fontFamily'],
-                inline: {
-                  options: ['bold', 'italic', 'underline', 'strikethrough', 'monospace'],
-                  bold: { className: 'bordered-option-classname' },
-                  italic: { className: 'bordered-option-classname' },
-                  underline: { className: 'bordered-option-classname' },
-                  strikethrough: { className: 'bordered-option-classname' },
-                  code: { className: 'bordered-option-classname' },
-                },
-                blockType: {
-                  className: 'bordered-option-classname',
-                },
-                fontSize: {
-                  className: 'bordered-option-classname',
-                },
-                fontFamily: {
-                  className: 'bordered-option-classname',
-                },
-              }}
-               editorState={editorState}
-               onEditorStateChange={setEditorState}
-               wrapperStyle={wrapperStyle}
-               editorStyle={editorStyle}   
-              />
-              {/* </Box> */}
-          <MyButton
-            onClick={newNoteFunc}
-            variant="contained"
-            >Submit
-          </MyButton>
-          <MyButton
-            onClick={(e) => setSelectedNote('')}
-            variant="contained"
-            >Back
-          </MyButton>
-          </Stack>
-          </div>
+    <Stack spacing={2}>
+        <Box
+        sx={{boxShadow: 3, borderRadius: 2, marginTop: 3,}}
+        >
+          <Editor
+          toolbar={{
+            options: ['inline', 'blockType', 'fontSize', 'fontFamily'],
+            inline: {
+              options: ['bold', 'italic', 'underline', 'strikethrough', 'monospace'],
+              bold: { className: 'bordered-option-classname' },
+              italic: { className: 'bordered-option-classname' },
+              underline: { className: 'bordered-option-classname' },
+              strikethrough: { className: 'bordered-option-classname' },
+              code: { className: 'bordered-option-classname' },
+            },
+            blockType: {
+              className: 'bordered-option-classname',
+            },
+            fontSize: {
+              className: 'bordered-option-classname',
+            },
+            fontFamily: {
+              className: 'bordered-option-classname',
+            },
+          }}
+            editorState={editorState}
+            onEditorStateChange={setEditorState}
+            wrapperStyle={wrapperStyle}
+            editorStyle={editorStyle}   
+          />
+          </Box>
+      <MyButton
+        onClick={newNoteFunc}
+        variant="contained"
+        >Update
+      </MyButton>
+      <MyButton
+        onClick={(e) => setSelectedNote('')}
+        variant="contained"
+        >Go Back
+      </MyButton>
+    </Stack>
     )
 }
 

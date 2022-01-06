@@ -1,6 +1,6 @@
 class Api::NotesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
-
+  before_action :authorize
 
   def index
     user = User.find_by(id: session[:user_id])
@@ -8,10 +8,10 @@ class Api::NotesController < ApplicationController
     render json: notes
   end
 
-  def destroy 
+  def destroy
     note = Note.find_by(id: params[:id])
     note.destroy!
-    render json: {message: 'Your note was deleted'}, status: :gone
+    render json: { message: 'Your note was deleted' }, status: :gone
   end
 
   def update
@@ -20,11 +20,11 @@ class Api::NotesController < ApplicationController
     render json: new_note, status: :accepted
   end
 
-  def create 
+  def create
     user = User.find_by(id: session[:user_id])
     if Event.find_event_by_time(user)
       event = Event.find_event_by_time(user)
-    else 
+    else
       event = user.events.find_or_create_by(name: 'Other')
     end
     note = event.notes.create!(note_params)

@@ -1,19 +1,15 @@
 import {useState, useEffect} from 'react'
 import Note from './Note'
-import { Button, ListItemAvatar, Stack} from '@mui/material'
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const EventsTile = ({name, setSelectedNote, eventId}) => {
     
-    const [userNotes, setUserNotes] = useState({
-        content: "no notes to show"
-    }) 
+    const [userNotes, setUserNotes] = useState('') 
     const [noteClick, setNoteClick] = useState(false)
     const [triggerRerender, setTriggerRerender] = useState(false)
 
