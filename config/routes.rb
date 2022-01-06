@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :notes
-    resources :users
-    resources :events, only: %i[index create]
+    resources :notes, only: %i[index update destroy create]
+    resources :users, only: %i[index]
+    resources :events, only: %i[index create destroy]
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
     post '/signup', to: 'users#create'

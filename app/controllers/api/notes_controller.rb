@@ -8,6 +8,12 @@ class Api::NotesController < ApplicationController
     render json: notes
   end
 
+  def destroy 
+    note = Note.find_by(id: params[:id])
+    note.destroy!
+    render json: {message: 'Your note was deleted'}
+  end
+
   def update
     note = Note.find_by(id: params[:id])
     new_note = note.update!(note_params)

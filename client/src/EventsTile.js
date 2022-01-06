@@ -5,6 +5,9 @@ import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const EventsTile = ({name, setSelectedNote, eventId}) => {
     
@@ -25,9 +28,15 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
     
     return (
         <List>
-            <ListItem>
-            <Button onClick={(e) => setNoteClick(() => !noteClick)} className='event-tile-name' variant='contained'>{name}</Button>
+            <ListItem
+            button
+            onClick={(e) => setNoteClick(() => !noteClick)}
+            className='event-tile-name'
+            >
+            <ListItemText primary={name}/>
+            {noteClick ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
+            <Collapse in={noteClick} timeout="auto" unmountOnExit>
             {noteClick && userNotes.filter((note) => note.event_id === eventId).map((n) => 
             <Note 
             key={n.id}
@@ -36,6 +45,7 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
             created_at={n.created_at}
             setSelectedNote={setSelectedNote}
             />)}
+            </Collapse>
         </List>
     )
 }
