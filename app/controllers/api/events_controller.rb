@@ -2,7 +2,8 @@ class Api::EventsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
   def create
-    event = Event.create!(event_params)
+    user = User.find_by(id: session[:user_id])
+    event = user.events.create!(event_params)
     render json: event, status: :created
   end
 
@@ -22,7 +23,6 @@ class Api::EventsController < ApplicationController
       :weekday,
       :start_hour,
       :end_hour,
-      :user_id
     )
   end
 

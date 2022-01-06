@@ -11,14 +11,12 @@ const AddEvents = ({user}) => {
 
     const now = DateTime.local();
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
     const [startValue, setStartValue] = useState(now);
     const [eventName, setEventName] = useState('')
     const [endValue, setEndValue] = useState(now);
     const [startTimeValue, setStartTimeValue] = useState('09:00');
     const [endTimeValue, setEndTimeValue] = useState('11:00');
     const [weekday, setWeekday] = useState('Monday')
-    // const [inputValue, setInputValue] = useState('');
 
     function formReset() {
       setEventName('')
@@ -35,9 +33,8 @@ const AddEvents = ({user}) => {
             weekday: weekday,
             start_hour: startTimeValue,
             end_hour: endTimeValue,
-            name: eventName,
-            user_id: user.id,
-        }
+            name: eventName
+          }
 
         fetch("/api/events", {
         method: "POST",
@@ -55,7 +52,7 @@ const AddEvents = ({user}) => {
     
     return (
         <Box maxWidth='sm' className='add-event-main-box' >
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h5" variant="h5">
             Add Event
           </Typography>
             <LocalizationProvider dateAdapter={DateAdapter}>
@@ -88,12 +85,7 @@ const AddEvents = ({user}) => {
                     label="Start Time"
                     type="time"
                     value = {startTimeValue}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    inputProps={{
-                      step: 300, // 5 min
-                    }}/>
+                    />
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} md={4} lg={4}>
@@ -106,12 +98,7 @@ const AddEvents = ({user}) => {
                     label="End Time"
                     type="time"
                     value = {endTimeValue}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    inputProps={{
-                      step: 300, // 5 min
-                    }}/>
+                    />
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} md={6} lg={6}>

@@ -8,7 +8,7 @@ const NavBar = () => {
         <Grid item xs={3} md={3} s={3}>
         <div className='nav-bar-item' >
             <NavLink 
-            activeStyle={{color: 'white'}}
+            activeStyle={{color: '#002884'}}
             exact to="/">
                 Home
             </NavLink></div>
@@ -16,7 +16,7 @@ const NavBar = () => {
         <Grid item xs={3} md={3} s={3}>
         <div className='nav-bar-item' >
             <NavLink
-            activeStyle={{color: 'white'}}
+            activeStyle={{color: '#002884'}}
             exact to="/newevent">
                 New Event
             </NavLink></div>
@@ -24,7 +24,7 @@ const NavBar = () => {
         <Grid item xs={3} md={3} s={3}>
         <div className='nav-bar-item' >
             <NavLink 
-            activeStyle={{color: 'white'}}
+            activeStyle={{color: '#002884'}}
             exact to="/mynotes">
                 My Notes
             </NavLink></div>
@@ -32,7 +32,7 @@ const NavBar = () => {
         <Grid item xs={3} md={3} s={3}>
         <div className='nav-bar-item'>
             <NavLink
-            activeStyle={{color: 'white'}}
+            activeStyle={{color: '#002884'}}
             exact to="/login">
                 Logout
             </NavLink></div>

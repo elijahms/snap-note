@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #E7717D;
 }
 
 .login-box {
@@ -17,10 +16,10 @@ margin: auto;
 padding-bottom: 2%;
 }
 
-.event-tile-container {
+/* .event-tile-container {
 width: 500px;
 border: 2px solid red;
-}
+} */
 
 .event-tile-name {
   width: 100%;
@@ -38,15 +37,6 @@ border: 2px solid red;
   padding-bottom: 2%;
   }
 
-.notes-main-box {
-  /* background-color: #C2CAD0; */
-  min-height: 60vh;
-  padding-top: 4%;
-  border: 2px solid green;
-  align-items: center;
-  margin: auto;
-  padding-bottom: 2%;
-  }
 
 .add-event-main-box {
 /* background-color: #C2CAD0; */
@@ -80,23 +70,23 @@ height: 450px;
 
 a:link {
   text-decoration: none;
-  color: #7e685a;
+  color: #757ce8;
 }
 a:visited {
   text-decoration: none;
-  color: #7e685a;
+  color: #757ce8;
 }
 a:hover {
   text-decoration: none;
-  color: #7e685a;
+  color: #757ce8;
 }
 a:active {
   text-decoration: none;
-  color: #7e685a;
+  color: #757ce8;
 }
 
 
-.login-link a:link {
+/* .login-link a:link {
   text-decoration: none;
   color: black;
 }
@@ -111,15 +101,14 @@ a:active {
 .login-link a:active {
   text-decoration: none;
   color: black;
-}
+} */
 
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
 h1 {
   text-align: center;
-  color: white;
 }

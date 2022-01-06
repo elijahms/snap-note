@@ -15,6 +15,8 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
         content: "no notes to show"
     }) 
     const [noteClick, setNoteClick] = useState(false)
+    const [triggerRerender, setTriggerRerender] = useState(false)
+
 
     useEffect(() => {
         fetch("/api/notes")
@@ -24,7 +26,7 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
             console.log(data)
             }
         )
-      }, []);
+      }, [triggerRerender]);
     
     return (
         <List>
@@ -38,7 +40,9 @@ const EventsTile = ({name, setSelectedNote, eventId}) => {
             </ListItem>
             <Collapse in={noteClick} timeout="auto" unmountOnExit>
             {noteClick && userNotes.filter((note) => note.event_id === eventId).map((n) => 
-            <Note 
+            <Note
+            setTriggerRerender={setTriggerRerender}
+            triggerRerender={triggerRerender}
             key={n.id}
             id={n.id}
             content={n.content}

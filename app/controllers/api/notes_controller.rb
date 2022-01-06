@@ -11,7 +11,7 @@ class Api::NotesController < ApplicationController
   def destroy 
     note = Note.find_by(id: params[:id])
     note.destroy!
-    render json: {message: 'Your note was deleted'}, status: :ok
+    render json: {message: 'Your note was deleted'}, status: :gone
   end
 
   def update

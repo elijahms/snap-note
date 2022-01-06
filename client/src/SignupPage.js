@@ -38,7 +38,7 @@ const SignUpPage = ({setUser}) => {
         last_name: data.get('lastName'),
       }
     console.log(form)
-    fetch("/api/users", {
+    fetch("/api/signup", {
       method: "POST",
       headers: {
           "Content-Type" : "application/json"

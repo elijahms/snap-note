@@ -9,6 +9,7 @@ import { Route, Switch } from "react-router-dom";
 import {useState, useEffect} from 'react'
 import NewLoginPage from "./NewLoginPage";
 import NewAddEvent from "./NewAddEvent";
+import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
  
   return (
   <div>
+    <CssBaseline />
     <h1> Welcome {user.first_name} </h1>
     <NavBar />
     <Switch>
