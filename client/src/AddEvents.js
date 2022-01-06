@@ -5,6 +5,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import NativeSelect from '@mui/material/NativeSelect';
 import { DateTime } from "luxon";
+import { Typography } from '@mui/material';
 
 const AddEvents = ({user}) => {
 
@@ -54,7 +55,9 @@ const AddEvents = ({user}) => {
     
     return (
         <Box maxWidth='sm' className='add-event-main-box' >
-          <h1>Add a New Event:</h1>
+                    <Typography component="h1" variant="h5">
+            Add Event
+          </Typography>
             <LocalizationProvider dateAdapter={DateAdapter}>
               <Grid className='add-event-main-grid' container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
                 <Grid item xs={12} md={12} lg={12} >
@@ -109,7 +112,6 @@ const AddEvents = ({user}) => {
                     inputProps={{
                       step: 300, // 5 min
                     }}/>
-                    {/* <FormHelperText>Time event ends</FormHelperText> */}
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} md={6} lg={6}>

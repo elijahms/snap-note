@@ -8,6 +8,7 @@ import SignUpPage from "./SignupPage";
 import { Route, Switch } from "react-router-dom";
 import {useState, useEffect} from 'react'
 import NewLoginPage from "./NewLoginPage";
+import NewAddEvent from "./NewAddEvent";
 
 function App() {
 
@@ -47,7 +48,8 @@ function App() {
     <NavBar />
     <Switch>
         <Route path="/newevent">
-        <AddEvents user={user} />
+        {/* <AddEvents user={user} /> */}
+        <NewAddEvent user={user} />
         </Route>
         <Route exact path="/login">
         <Logout setUser={setUser}/>
