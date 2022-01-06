@@ -26,7 +26,7 @@ const NavBar = () => {
             <NavLink 
             activeStyle={{color: '#002884'}}
             exact to="/mynotes">
-                My Notes
+                My Events
             </NavLink></div>
         </Grid>
         <Grid item xs={3} md={3} s={3}>

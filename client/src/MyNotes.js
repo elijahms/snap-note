@@ -51,6 +51,9 @@ const MyNotes = () => {
                     key={e.id}
                     name={e.name}
                     eventId={e.id}
+                    weekday={e.weekday}
+                    startHour={e.start_hour}
+                    endHour={e.end_hour}
                     setTriggerRerender={setTriggerRerender}
                     triggerRerender={triggerRerender}
                      />

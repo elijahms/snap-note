@@ -8,16 +8,20 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import { DateTime } from "luxon";
 
-const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, triggerRerender}) => {
+
+const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, triggerRerender, weekday, startHour, endHour}) => {
     
     const [userNotes, setUserNotes] = useState('') 
     const [noteClick, setNoteClick] = useState(false)
-    // const [triggerRerender, setTriggerRerender] = useState(false)
 
+    let starthour = DateTime.fromISO(startHour).toLocaleString(DateTime.TIME_SIMPLE)
+    let endhour = DateTime.fromISO(endHour).toLocaleString(DateTime.TIME_SIMPLE)
 
     function deleteEventFunc(e) {
         fetch(`/api/events/${eventId}`, { method: 'DELETE' })
+        .then((r) => r.json())
         .then((message) => console.log(message));
         setTriggerRerender((triggerRerender) => !triggerRerender)
     }
@@ -28,7 +32,7 @@ const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, trigger
         .then((r) => r.json())
         .then((data) => {
             setUserNotes(data)
-            console.log(data)
+            // console.log(data)
             }
         )
       }, []);
@@ -49,7 +53,10 @@ const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, trigger
             onClick={(e) => setNoteClick(() => !noteClick)}
             className='event-tile-name'
             >
-            <ListItemText primary={name}/>
+            <ListItemText 
+            primary={name}
+            secondary= {name != "Other" ? weekday + "'s from: " + starthour + " to " + endhour : 'Uncategorized'}
+            />
             {noteClick ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={noteClick} timeout="auto" unmountOnExit>
