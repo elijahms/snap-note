@@ -8,6 +8,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom'
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 
 const MyNotes = () => {
@@ -30,6 +32,13 @@ const MyNotes = () => {
     
     return (
         <Container component="main" maxWidth="md">
+            {/* {<Stack
+            > 
+            <Alert severity="success">
+            <AlertTitle>Success</AlertTitle>
+            Succesfully Deleted
+            </Alert>
+            </Stack>} */}
             {
             !selectedNote ? 
                 <Box

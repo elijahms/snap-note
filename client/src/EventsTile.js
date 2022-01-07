@@ -9,6 +9,8 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import { DateTime } from "luxon";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 
 const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, triggerRerender, weekday, startHour, endHour}) => {
@@ -25,6 +27,7 @@ const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, trigger
         .then((r) => r.json())
         .then((message) => console.log(message));
         setTriggerRerender((triggerRerender) => !triggerRerender)
+        alert('Your event was deleted')
     }
 
 
@@ -56,7 +59,7 @@ const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, trigger
             >
             <ListItemText 
             primary={name}
-            secondary= {name != "Other" ? weekday + "'s from: " + starthour + " to " + endhour : 'Uncategorized'}
+            secondary= {name !== "Other" ? weekday + "'s from: " + starthour + " to " + endhour : 'Uncategorized'}
             />
             {noteClick ? <ExpandLess /> : <ExpandMore />}
             </ListItem>

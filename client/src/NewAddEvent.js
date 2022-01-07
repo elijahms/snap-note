@@ -62,6 +62,7 @@ const NewAddEvent = ({user}) => {
           console.log(data);
       })
       formReset()
+      alert('Your event was added')
     }
 
   return (

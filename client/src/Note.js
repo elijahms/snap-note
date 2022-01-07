@@ -17,6 +17,7 @@ const Note = ({content, setSelectedNote, id, created_at, setTriggerRerender, tri
         fetch(`/api/notes/${id}`, { method: 'DELETE' })
         .then((message) => console.log(message));
         setTriggerRerender((triggerRerender) => !triggerRerender)
+        alert('Your note was deleted')
     }
 
     return (

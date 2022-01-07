@@ -46,6 +46,7 @@ const NewNote = ({user}) => {
           r.json().then((err) => console.log(err));
         }
       })
+      alert('Your note was submitted')
     } else {
       fetch(`/api/notes/${selectedNote}`, {
         method: "PATCH",
@@ -62,6 +63,7 @@ const NewNote = ({user}) => {
           r.json().then((err) => console.log(err));
         }
       });
+      alert('Your note was updated')
     }
   }
     
