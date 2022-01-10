@@ -9,8 +9,6 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import { DateTime } from "luxon";
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 
 
 const EventsTile = ({name, setSelectedNote, eventId, setTriggerRerender, triggerRerender, weekday, startHour, endHour}) => {

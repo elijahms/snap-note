@@ -34,7 +34,10 @@ class Event < ApplicationRecord
     user.events.find do |event|
       event.weekday == weekday && event.start_hour.hour <= current_time.hour &&
         event.end_hour.hour >= current_time.hour &&
-        current_time.yday <= event.end_date.yday && current_time.yday >= event.start_date.yday && event.start_hour.min <= current_time.min && event.end_hour >= current_time.min
+        current_time.yday <= event.end_date.yday &&
+        current_time.yday >= event.start_date.yday &&
+        event.start_hour.min <= current_time.min &&
+        event.end_hour >= current_time.min
     end
   end
 end

@@ -7,7 +7,6 @@ import {MyButton} from './Components/Button.style.js'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 
 
 const EditNote = ({selectedNote, setSelectedNote}) => {

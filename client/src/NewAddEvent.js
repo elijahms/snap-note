@@ -1,27 +1,20 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { NavLink } from 'react-router-dom';
 import {useState} from 'react'
 import DateAdapter from '@mui/lab/AdapterLuxon';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import NativeSelect from '@mui/material/NativeSelect';
 import { DateTime } from "luxon";
 
 
 const NewAddEvent = ({user}) => {
 
-    const now = DateTime.local();
+    const now = DateTime.now()
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const [startValue, setStartValue] = useState(now);
     const [eventName, setEventName] = useState('')
@@ -30,12 +23,13 @@ const NewAddEvent = ({user}) => {
     const [endTimeValue, setEndTimeValue] = useState('11:00');
     const [weekday, setWeekday] = useState('Monday')
 
+    console.log(startValue)
+
     function formReset() {
       setEventName('')
       setStartTimeValue('09:00')
       setEndTimeValue('11:00')
     }
-
 
     function handleSubmit(e) {
       e.preventDefault();
